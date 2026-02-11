@@ -27,6 +27,8 @@ O PAT é um substituto para a senha de usuário, utilizado para autenticar opera
 1. Por fim, vá até o final da página e selecione "Generate token"
 1. Dica final: não precisa deixar o token anotado, ele contém permissões para fazer alterações na sua conta! Caso esqueça, pode gerar um novo clicando no nome dele em azul, ou realizar os passos abaixo para armazenar por quanto tempo desejar no seu computador.
 
+### Salvar em cache as credenciais do PAT
+
 - Para armazenar por 15 minutos:
 ```bash
 git config global credential.helper cache
@@ -36,7 +38,5 @@ git config global credential.helper cache
 ```bash
 git config --global credential.helper 'cache = 3600'
 ```
-
-### Salvar em cache as credenciais do PAT
 
 ## Qual a diferença entre git merge e git rebase?
