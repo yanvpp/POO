@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cc4265-9ee8-4385-a6c3-9fe655e41e34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../aula_02/al.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engtelecom/poo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engtelecom/poo/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="73cc4265-9ee8-4385-a6c3-9fe655e41e34" name="Changes" comment="aula dia 02/03/2026" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +18,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "yanvpp"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/yanvpp/POO.git",
+    "accountId": "aba60665-ac8b-47b0-bf7c-952345b5a30b"
+  }
+}]]></component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-9.2.0-bin/11i5gvueggl8a5cioxuftxrik/gradle-9.2.0" javaHome="/usr/java/jdk-25-oracle-x64" gradleVersion="9.2.0" />
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 3
@@ -83,8 +87,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1772453148705</updated>
-      <workItem from="1772453152535" duration="603000" />
+      <workItem from="1772453152535" duration="649000" />
     </task>
+    <task id="LOCAL-00001" summary="aula dia 02/03/2026">
+      <option name="closed" value="true" />
+      <created>1772453783905</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1772453783905</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +113,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="aula dia 02/03/2026" />
+    <option name="LAST_COMMIT_MESSAGE" value="aula dia 02/03/2026" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
