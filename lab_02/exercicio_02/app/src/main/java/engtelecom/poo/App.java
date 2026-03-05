@@ -3,12 +3,27 @@
  */
 package engtelecom.poo;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.util.Random;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+public class App {
+    void main(){
+        int palpite = Integer.parseInt(IO.readln("Entre com o seu palpite: "));
+
+        Random r = new Random();
+
+        int numero = r.nextInt(0, 100);
+
+        int tentativas = 1;
+
+        for (int i = 0; palpite != numero; i++) {
+            if (palpite > numero) System.out.println("O número sorteado é menor!");
+            else System.out.println("O número sorteado é maior!");
+            tentativas ++;
+            palpite = Integer.parseInt(IO.readln("Tente novamente: "));
+
+        }
+
+        System.out.println("Parabéns, você acertou!");
+        System.out.println("Quantidade de tentativas: " + tentativas);
     }
 }
