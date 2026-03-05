@@ -13,6 +13,7 @@
 ## Aulas
 
 - [Aula 01](aula_01) - Introdução à Linguagem Java
+- [Aula 02](aula_02) - Criando e Organizando Repositórios
 - [Aula 04](aula_04) - Comandos Esseciais em Java
 - [Aula 05](aula_05) - Comandos Esseciais em Java
 - [Aula 06](aula_06) - Criação de projetos em Java
