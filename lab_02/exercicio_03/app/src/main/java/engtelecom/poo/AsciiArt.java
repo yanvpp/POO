@@ -8,7 +8,7 @@ public class AsciiArt {
     if(args.length == 3){
 
             int linhas = Integer.parseInt(args[1]);
-            // int colunas = Integer.parseInt(args[2]);
+            int colunas = Integer.parseInt(args[2]);
 
             switch (args[0].toLowerCase()){
                 case "triângulo", "triangulo":
@@ -31,13 +31,16 @@ public class AsciiArt {
                     }
                     } else System.out.println("ERRO: O losango precisa ter tamanho ímpar.");
                     
-
                     break;
 
-                case "retangulo":
-                    for (int i = 0; i <= linhas; i++) {
-
+                case "retângulo", "retangulo":
+                    System.out.println("*".repeat(linhas));
+                    for (int i = 0; i < colunas - 2; i++) {
+                        System.out.println("*" + " ".repeat(linhas - 2) + "*");;
                     }
+                    System.out.println("*".repeat(linhas));
+                    
+                    break;
 
                 case "secreto":
                     String imagem = "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡇⠀⠀⠀⠀⠀⠀⠀\n" +
