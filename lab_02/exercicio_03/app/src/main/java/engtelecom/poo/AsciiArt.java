@@ -5,20 +5,32 @@ package engtelecom.poo;
 
 public class AsciiArt {
     void main(String[] args){
-        if(args.length == 3){
+    if(args.length == 3){
 
             int linhas = Integer.parseInt(args[1]);
-            int colunas = Integer.parseInt(args[2]);
+            // int colunas = Integer.parseInt(args[2]);
 
             switch (args[0].toLowerCase()){
-                case "triângulo":
+                case "triângulo", "triangulo":
                     for (int i = 0; i <= linhas; i++) {
                         System.out.println("*".repeat(i));
                     }
                     break;
 
                 case "losango":
-                    int metade = linhas / 2;
+
+                    if (linhas % 2 != 0) {
+                        int metade = linhas / 2 + 1;
+
+                    for (int i = 1; i <= linhas; i++) {
+                        int espacos = Math.abs(metade - i);
+                        int asteriscos = Math.abs(linhas - (2 * espacos));
+
+                        System.out.print(" ".repeat(espacos));
+                        System.out.println("*".repeat(asteriscos));
+                    }
+                    } else System.out.println("ERRO: O losango precisa ter tamanho ímpar.");
+                    
 
                     break;
 
