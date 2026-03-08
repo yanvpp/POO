@@ -3,8 +3,51 @@
  */
 package engtelecom.poo;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+
 public class App {
-    void main(){
-        
+    void main() {
+        String[][] matriz = new String[9][9];
+
+        try {
+            // Cria ou abre o arquivo
+            FileWriter escritor = new FileWriter("matriz.txt");
+
+            int asteriscos = 0;
+
+            // Roda a lógica do exercício 4
+            Random r = new Random();
+
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    matriz[i][j] = ".";
+                }
+            }
+
+            while (asteriscos < 10) {
+                int linha = r.nextInt(0, 9);
+                int coluna = r.nextInt(0, 9);
+
+                if (matriz[linha][coluna].equals(".")) {
+                    matriz[linha][coluna] = "*";
+                    asteriscos++;
+                }
+            }
+
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    escritor.write(matriz[i][j]);
+                }
+                escritor.write("\n");
+            }
+
+            // Fecha o arquivo para salvar e liberar a memória
+            escritor.close();
+
+        } catch (IOException e) {
+            System.out.println("Ocorreu um erro ao criar o arquivo.");
+        }
     }
 }
