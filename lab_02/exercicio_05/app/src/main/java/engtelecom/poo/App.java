@@ -3,56 +3,64 @@
  */
 package engtelecom.poo;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Random;
+import java.util.Scanner;
 
 public class App {
     void main() {
-        String[][] matriz = new String[9][9];
+        Scanner entrada = new Scanner(System.in);
 
-        try {
-            // Cria ou abre o arquivo
-            FileWriter escritor = new FileWriter("matriz.txt");
+        int[][] matrizNum = new int[9][9];
+
+        // contador auxiliar
+        int linhaMatriz = 0;
+
+        System.out.println("Matriz original: ");
+
+        // lê o arquivo
+        while (entrada.hasNext()) {
+            String linha = entrada.nextLine();
+            System.out.println(linha);
+
+            // armazena o conteúdo do arquivo em uma matriz de inteiros
+            for (int i = 0; i < linha.length(); i++) {
+                matrizNum[linhaMatriz][i] = linha.charAt(i) == '.' ? 0 : 9; // se for '.', armazena 0, caso contrário,
+                                                                            // armazena '1'
+            }
+
+            linhaMatriz++;
+        }
+
+        System.out.println("Campo minado: ");
+
+        char[][] matrizFinal = new char[9][9];
+
+        for (int i = 0; i < 9; i++) {
 
             int asteriscos = 0;
 
-            // Roda a lógica do exercício 4
-            Random r = new Random();
+            for (int j = 0; j < 9; j++) {
+                // se for 9, substitui por asterisco
+                if (matrizNum[i][j] == 9) {
+                    matrizFinal[i][j] = '*';
 
-            for (int i = 0; i < 9; i++) {
-                for (int j = 0; j < 9; j++) {
-                    matriz[i][j] = ".";
+                    switch (i) {
+                        case 0:
+                            matrizFinal[i][j] += 1;
+                            
+                            break;
+                    
+                        default:
+                            break;
+                    }
+                } 
+                // se for 0, conta quantos asteriscos adjacentes a matriz tem
+                else {
+                    
                 }
             }
 
-            while (asteriscos < 10) {
-                int linha = r.nextInt(0, 9);
-                int coluna = r.nextInt(0, 9);
-
-                if (matriz[linha][coluna].equals(".")) {
-                    matriz[linha][coluna] = "*";
-                    asteriscos++;
-                }
-            }
-
-
-            System.out.println("Matriz original: ");
-            for (int i = 0; i < 9; i++) {
-                for (int j = 0; j < 9; j++) {
-                    System.out.println(matriz[i][j]);
-                    escritor.write(matriz[i][j]);
-                }
-                escritor.write("\n");
-            }
-
-            // Fecha o arquivo para salvar e liberar a memória
-            escritor.close();
-
-        } catch (IOException e) {
-            System.out.println("Ocorreu um erro ao criar o arquivo.");
         }
 
-
+        entrada.close();
     }
 }
