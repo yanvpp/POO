@@ -36,8 +36,11 @@ public class App {
                 }
             }
 
+
+            System.out.println("Matriz original: ");
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
+                    System.out.println(matriz[i][j]);
                     escritor.write(matriz[i][j]);
                 }
                 escritor.write("\n");
@@ -49,5 +52,7 @@ public class App {
         } catch (IOException e) {
             System.out.println("Ocorreu um erro ao criar o arquivo.");
         }
+
+
     }
 }
