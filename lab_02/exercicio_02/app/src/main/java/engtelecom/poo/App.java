@@ -9,7 +9,7 @@ public class App {
     void main(){
         Random r = new Random();
 
-        int numero = r.nextInt(0, 100);
+        int numero = r.nextInt(1, 101);
 
         int tentativas = 1;
 
