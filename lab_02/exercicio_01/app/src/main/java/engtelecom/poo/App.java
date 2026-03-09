@@ -13,7 +13,7 @@ public class App {
             dia = Integer.parseInt(IO.readln("Dia inválido, tente novamente: "));
         }
 
-        String estacao;
+        String estacao = "";
 
         switch (mes.toLowerCase()){
 
@@ -40,7 +40,10 @@ public class App {
                 if (dia < 23) estacao = "inverno";
                 else estacao = "primavera";
                 break;
+            default: System.out.println("Mês inválido.");
 
         }
+
+        System.out.println("A estação é: " + estacao);
     }
 }
