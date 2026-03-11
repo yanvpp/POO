@@ -30,89 +30,34 @@ public class App {
             linhaMatriz++;
         }
 
-        System.out.println("Campo minado: ");
+        System.out.println("Matriz campo: ");
 
-        char[][] matrizFinal = new char[9][9];
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                // se for asterisco
+                if (matrizNum[i][j] == 9) {
+                    for (int i2 = i - 1; i2 < i + 1; i2++) {
 
-        // substituir os 0s pela quantidade de asteriscos adjacentes
-        for (int i = 0; i < matrizFinal.length; i++) {
-            int asteriscos = 0;
-
-            for (int j = 0; j < matrizFinal.length; j++) {
-                if (matrizNum[i][j] != 9) {
-                    int linhaAnterior = i - 1;
-                    int linhaSeguinte = i + 1;
-                    int colunaAnterior = j - 1;
-                    int colunaSeguinte = j + 1;
-
-                    // percorrer a linha anterior
-                    for (int k = colunaAnterior; k <= colunaSeguinte; k++) {
-                        if (linhaAnterior < 0) break;
-                        if (colunaAnterior < 0) k++;
-                        if (matrizNum[linhaAnterior][k] == 9) asteriscos++;
-                        if (k > 9) break;
+                        for (int j2 = j - 1; j2 < j + 1; j2++) {
+                            if (i2 >= 0 && i2 < 9 && j2 >= 0 && j2 < 9) {
+                                if (matrizNum[i2][j2] != 9) {
+                                    matrizNum[i2][j2]++;
+                                }
+                            }
+                        }
                     }
-
-                    // para percorrer a mesma linha do asterisco
-                    for (int k = colunaAnterior; k <= colunaSeguinte; k++) {
-                        if (colunaAnterior < 0) k = colunaSeguinte;
-                        if (matrizNum[i][k] == 9) asteriscos++;
-                        if (k > 9) break;
-                    }
-
-                    // para percorrer a linha seguinte
-                    for (int k = colunaAnterior; k < colunaSeguinte; k++) {
-                        if (linhaSeguinte > 9) break;
-                        if (colunaAnterior < 0) k++;
-                        if (matrizNum[linhaSeguinte][k] == 9) asteriscos++;
-                        if (k > 9) break;
-                    }
-
-                    char asteriscosAdjacentes = ' ';
-
-                    switch (asteriscos){
-                        case 0: asteriscosAdjacentes = '0';
-                        break;
-                        case 1: asteriscosAdjacentes = '1';
-                        break;
-                        case 2: asteriscosAdjacentes = '2';
-                        break;
-                        case 3: asteriscosAdjacentes = '3';
-                        break;
-                        case 4: asteriscosAdjacentes = '4';
-                        break;
-                        case 5: asteriscosAdjacentes = '5';
-                        break;
-                        case 6: asteriscosAdjacentes = '6';
-                        break;
-                        case 7: asteriscosAdjacentes = '7';
-                        break;
-                        case 8: asteriscosAdjacentes = '8';
-                        break;
-                        case 9: asteriscosAdjacentes = '9';
-                        break;
-                        default: asteriscosAdjacentes = '1' + '0';
-                    }
-
-                    matrizFinal[i][j] = asteriscosAdjacentes;
-                } else matrizFinal[i][j] = '*';
+                }
             }
         }
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if(matrizNum[i][j] == 9) System.out.print("*");
+                else System.out.print(matrizNum[i][j]);
+            }
+            System.out.println();
+        }
+
         entrada.close();
-
-        
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                System.out.print(matrizFinal[i][j]);
-            }
-        }
-
-        // subsituir os 9s por asteriscos
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                // se for 9, substitui por asterisco
-                if (matrizNum[i][j] == 9) matrizFinal[i][j] = '*';
-            }
-        }
     }
 }
