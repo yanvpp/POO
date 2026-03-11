@@ -17,3 +17,4 @@
 - [Aula 04](aula_04) - Comandos Esseciais em Java
 - [Aula 05](aula_05) - Comandos Esseciais em Java
 - [Aula 06](aula_06) - Criação de projetos em Java
+- [Aula 08](aula_08) - Primeira aula sobre objetos
