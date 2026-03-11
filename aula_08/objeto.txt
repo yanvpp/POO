@@ -1,0 +1,31 @@
+relógio de pulso:
+
+atributos (características):
+    - cor: preto
+    - botões: sim
+
+métodos (o que se pode fazer com o objeto):
+    - ver as horas
+    - programar alarme
+
+
+mochila:
+
+atributos (características):
+    - tem 3 divisórias
+    - tem alça
+
+métodos (o que se pode fazer com o objeto):
+    - organizar outros objetos dentro dela
+    - carregar nas costas
+
+
+lâmpada:
+
+atributos (características):
+    - cor
+    - intensidade
+
+métodos (o que se pode fazer com o objeto):
+    - alterar cor
+    - alterar intensidade
