@@ -4,7 +4,23 @@
 package engtelecom.poo;
 
 public class App {
-    void main(){
-        
+    void main() {
+        Lampada a = new Lampada();
+        Lampada b = new Lampada();
+
+        System.out.println(a.isLigada());
+
+        a.ligar();
+
+        System.out.println("Lâmpada a: " + a.isLigada());
+
+        System.out.println("Lâmpada b: " + b.isLigada());
+
+        a.ligaDesliga();
+        b.ligaDesliga();
+
+        System.out.println("Lâmpada a: " + a.isLigada());
+
+        System.out.println("Lâmpada b: " + b.isLigada());
     }
 }
