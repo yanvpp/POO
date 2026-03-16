@@ -1,0 +1,11 @@
+Sistema para revenda de carros:
+    Atributos:
+        - condição (novo/usado)
+        - ano de fabricação
+        - cor
+
+Jogo de Fórmula 1:
+    Atributos:
+        - aceleração
+        - tipo de pneu
+        - equipe

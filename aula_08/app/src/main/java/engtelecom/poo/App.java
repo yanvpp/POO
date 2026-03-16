@@ -5,22 +5,42 @@ package engtelecom.poo;
 
 public class App {
     void main() {
-        Lampada a = new Lampada();
-        Lampada b = new Lampada();
+        // Lampada a = new Lampada();
+        // Lampada b = new Lampada();
 
-        System.out.println(a.isLigada());
+        // System.out.println(a.isLigada());
 
-        a.ligar();
+        // a.ligar();
 
-        System.out.println("Lâmpada a: " + a.isLigada());
+        // System.out.println("Lâmpada a: " + a.isLigada());
 
-        System.out.println("Lâmpada b: " + b.isLigada());
+        // System.out.println("Lâmpada b: " + b.isLigada());
 
-        a.ligaDesliga();
-        b.ligaDesliga();
+        // a.ligaDesliga();
+        // b.ligaDesliga();
 
-        System.out.println("Lâmpada a: " + a.isLigada());
+        // System.out.println("Lâmpada a: " + a.isLigada());
 
-        System.out.println("Lâmpada b: " + b.isLigada());
+        // System.out.println("Lâmpada b: " + b.isLigada());
+
+        Caneta bic = new Caneta();
+
+        bic.setCor("azul");
+
+        System.out.println(bic.getCor());
+
+        System.out.println(bic.draw(10, 20, 10, 20));
+
+        System.out.println("Carga atual: " + bic.getCarga());
+
+        bic.abrirFechar();
+
+        System.out.println(bic.draw(10, 20, 10, 20));
+
+        System.out.println("Carga atual: " + bic.getCarga());
+
+        bic.refill();
+
+        System.out.println("Carga atual: " + bic.getCarga());
     }
 }
