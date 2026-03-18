@@ -4,11 +4,38 @@
 package engtelecom.poo;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    void main() {
+        Carro c = new Carro("", 270);
+
+        c.acelerar(40);
+
+        // Carro.VELOCIDADE_MAXIMA = 10; caso esteja "public"
+
+        // c.velocidadeAtual = -15238; // qualquer valor pode ser adicionado, por isso
+        // deve ser "private"
+
+        Carro mustang = new Carro("Mustang");
+
+        System.out.println(mustang);
+
+        // Método construtor
+        Pessoa p = new Pessoa("Yan Pereira", "000.000.000-00", "email@example.com");
+
+        // O mesmo que:
+        // p.setNome("Yan Pereira");
+        // p.setEmail("email@example.com");
+        // p.setCpf("000.000.000-000");
+
+        System.out.println(p);
+
+        // O mesmo que:
+        // System.out.println(p.getNome());
+        // System.out.println(p.getEmail());
+        // System.out.println(p.getCpf());
+
+        Horario h = new Horario();
+
+        
     }
 }
