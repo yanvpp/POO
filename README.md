@@ -9,6 +9,7 @@
 
 - [Laboratório 01](lab_01) - Sistema de Controle de Versão
 - [Laboratório 02](lab_02) - Exercícios e Criação de Projetos
+- [Laboratório 03](lab_03) - Construtores e Modificadores de Acesso
 
 ## Aulas
 
@@ -19,3 +20,4 @@
 - [Aula 06](aula_06) - Criação de projetos em Java
 - [Aula 08](aula_08) - Primeira aula sobre objetos
 - [Aula 09](aula_09) - Implementação de classes
+- [Aula 10](aula_10) - Construtores e Modificadores de Acesso
