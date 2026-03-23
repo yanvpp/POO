@@ -5,6 +5,25 @@ package engtelecom.poo;
 
 public class App {
     void main(){
-        
+        Ponto a = new Ponto(0,0);
+        Ponto b = new Ponto(0,0);
+
+        a.setX(1);
+        a.setY(1);
+
+        System.out.println("XA: " + a.getX());
+        System.out.println("YA: " + a.getY());
+
+        System.out.println("Coordenadas a: " + a.toString());
+
+        b.setX(2);
+        b.setY(3);
+
+        System.out.println("XB: " + b.getX());
+        System.out.println("YB: " + b.getY());
+
+        System.out.println("Coordenadas b: " + b.toString());
+
+        System.out.println("Distância entre os pontos: " + a.distancia(b));
     }
 }
