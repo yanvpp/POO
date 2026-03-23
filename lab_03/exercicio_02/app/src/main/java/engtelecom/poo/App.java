@@ -5,6 +5,8 @@ package engtelecom.poo;
 
 public class App {
     void main(){
-        
+        Horario h = new Horario(15, 16, 37);
+
+        System.out.println(h.porExtenso());
     }
 }
