@@ -4,5 +4,9 @@
 package engtelecom.poo;
 
 public class App {
-    
+    void main() {
+        Retangulo retangulo = new Retangulo("UTF-8", 12, 18);
+
+        System.out.println(retangulo.toString());
+    }
 }
