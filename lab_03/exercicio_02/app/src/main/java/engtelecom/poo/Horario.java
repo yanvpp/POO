@@ -1,7 +1,5 @@
 package engtelecom.poo;
 
-import java.io.StringReader;
-
 public class Horario {
     private int hora;
     private int minuto;
@@ -90,39 +88,65 @@ public class Horario {
 
         int horaD = (hora / 10) * 10;
         int horaU = hora % 10;
-        int minutoD = (minuto / 10) * 10;
-        int minutoU = minuto % 10;
-        int segundoD = (segundo / 10) * 10;
-        int segundoU = segundo % 10;
+        // int minutoD = (minuto / 10) * 10;
+        // int minutoU = minuto % 10;
+        // int segundoD = (segundo / 10) * 10;
+        // int segundoU = segundo % 10;
 
         String h = (hora == 1) ? "uma"
                 : (hora == 2) ? "duas" : (hora < 20) ? converte(hora) : converte(horaD) + " e " + converte(horaU);
 
         if (hora < 10) {
             h += " hora";
-        } else h += " horas";
+        } else
+            h += " horas";
 
-        String m = "";
-
-        if(minuto < 10 && minuto != 1) {
-            m = converte(minutoU) + " minutos";
-        } else if(minuto == 1){
-            m = converte(minutoU) + " minuto";
-        } else{
-            m = converte(segundoU) + " minutos";
+        if (minuto != 0){
+            h += ", ";
+        } else {
+            h += " e ";
         }
+
+        String m = converterMinSec(" minuto", " minutos", minuto);
+
+        if (segundo != 0){
+            m += " e ";
+        }
+
+        // if (minuto != 0) {
+        // if (segundo == 0) {
+        // m += " e ";
+        // } else {
+        // m += ", ";
+        // }
+        // if (minuto < 20 && minuto != 1) {
+        // m += converte(minuto) + " minutos";
+        // } else if (minuto == 1) {
+        // m += converte(minutoU) + " minuto";
+        // } else {
+        // m += converte(minutoD) + " e " + converte(minutoU) + " minutos";
+        // }
+        // }
+
+        String s = converterMinSec(" segundo", " segundos", segundo);
+
+        return h + m + s;
+    }
+
+    private String converterMinSec(String singular, String plural, int n) {
 
         String s = "";
+        int nD = (n / 10) * 10;
+        int nU = n % 10;
 
-        if(segundo < 10 && segundo != 1) {
-            m = converte(segundoU) + " segundos";
-        } else if(segundo == 1){
-            m = converte(segundoU) + " segundo";
-        } else{
-            m = converte(segundoU) + " segundos";
+        if (n < 20 && n != 1) {
+            s = converte(n) + plural;
+        } else if (n == 1) {
+            s = converte(nU) + singular;
+        } else {
+            s = converte(nD) + " e " + converte(nU) + plural;
         }
 
-
-        return h + ", " + m + " e " + s;
+        return s;
     }
 }
