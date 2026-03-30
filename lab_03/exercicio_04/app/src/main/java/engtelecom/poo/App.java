@@ -5,6 +5,14 @@ package engtelecom.poo;
 
 public class App {
     void main(){
-        
+        Data data = new Data(31);
+
+        System.out.println("Data 1: " + data.toString());
+
+        Data teste = new Data(14, 3);
+
+        System.out.println("Data 2: " + teste.toString());
+
+        System.out.println("Diferença em dias: " + data.diferenca(teste));
     }
 }
