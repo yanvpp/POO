@@ -3,83 +3,125 @@
  */
 package engtelecom.poo;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.HashMap;
 
 public class App {
-    private ArrayList<Conta> contas = new ArrayList<>();
+    /*
+     * 1. Cadastrar livro
+     * 2. Listar ISBN e título de todos os livros
+     * 3. Consultar livro por ISBN e imprimir os dados do livro
+     * 4. Consultar livro por autor e imprimir os dados do(s) livro(s)
+     * 5. Atualizar dados de um livro, esxeto o ISBN
+     * 6. Remover um livro pelo ISBN
+     * 7. Sair
+     */
+    private HashMap<String, Livro> acervo = new HashMap<>();
 
     private void menu() {
-        System.out.println("|---- BANCO ----|");
-        System.out.println("1. Criar conta");
-        System.out.println("2. Listar contas");
-        System.out.println("3. Sacar");
-        System.out.println("4. Depositar");
-        System.out.println("5. Sair");
-        System.out.print("\nEscolha uma opção: ");
+        System.out.println("|--- BIBLIOTECA ---|");
+        System.out.println("1. Cadastrar livro");
+        System.out.println("2. Listar livros");
+        System.out.println("3. Consultar por ISBN");
+        System.out.println("4. Consultar por autor");
+        System.out.println("5. Atualizar livro");
+        System.out.println("6. Remover livro:");
+        System.out.println("7. Sair");
+    }
+
+    private void cadastrar() {
+        String iSBN = IO.readln("Entre com o ISBN: ");
+
+        if(acervo.containsKey(iSBN)){
+            System.out.println("ISBN já cadastrado, retornando ao menu...");
+            return;
+        }
+
+        String titulo = IO.readln("Entre com o título: ");
+        String autor = IO.readln("Entre com o nome do autor: ");
+        int anoPublicacao = Integer.parseInt(IO.readln("Entre com o ano de publicação: "));
+
+        Livro livro = new Livro(iSBN, titulo, autor, anoPublicacao);
+
+        acervo.put(iSBN, livro);
+    }
+
+    private void listarLivros(){
+        for (Livro livro : acervo.values()) {
+            System.out.println("==================");
+            System.out.println(livro);
+        }
+    }
+
+    private void consultarISBN(){
+        String iSBN = IO.readln("Entre com o ISBN: ");
+
+        Livro livro = acervo.get(iSBN);
+
+        if(livro != null){
+            System.out.println(livro);
+        }
+    }
+
+    private void consultarAutor(){
+        // desenvolver lógica para consulta baseado na por ISBN
     }
 
     void main() {
+
         App app = new App();
+
+        Livro a = new Livro("948", "Java", "Deitel", 2001);
+        Livro b = new Livro("12345", "Rangers", "John Flanagan", 2004);
+        Livro c = new Livro("65843", "Mais Esperto Que o Diabo", "Napoleon Hill", 1938);
+
+        if (!app.acervo.containsKey(a.getISBN())) {
+            app.acervo.put(a.getISBN(), a);
+        }
+
+        if (!app.acervo.containsKey(b.getISBN())) {
+            app.acervo.put(b.getISBN(), b);
+        }
+
+        if (!app.acervo.containsKey(c.getISBN())) {
+            app.acervo.put(c.getISBN(), c);
+        }
+
+        // percorrendo chave e valor
+        app.acervo.forEach((key, value) -> {
+            System.out.println(String.format("chave: %s\n|--- livro ---|\n%s", key, value));
+        });
+
+        // percorrendo apenas valor
+        for (Livro livro : app.acervo.values()) {
+            System.out.println(livro);
+        }
+
         int opcao;
 
         do {
             app.menu();
-            opcao = Integer.parseInt(IO.readln());
+            opcao = Integer.parseInt(IO.readln("Escolha uma opção: "));
+
             switch (opcao) {
                 case 1:
-                    String titular = IO.readln("Entre com o nome do titular: ");
-                    Random r = new Random();
-
-                    long numConta = r.nextInt(1000, 20000);
-
-                    double saldo = Double.parseDouble(IO.readln("Entre com o saldo inicial: "));
-
-                    Conta conta = new Conta(numConta, saldo, titular);
-
-                    contas.add(conta);
+                    app.cadastrar();
                     break;
 
                 case 2:
-                    contas.forEach(IO::println);
+                    app.listarLivros();
                     break;
 
                 case 3:
-                    long nContaS = Long.parseLong(IO.readln("Entre com o número da conta: "));
-                    double valorSaque = Double.parseDouble(IO.readln("Entre com o valor a sacar: "));
-
-                    contas.forEach(e -> {
-                        if (e.getNumConta() == nContaS) {
-                            if (e.sacar(valorSaque)) {
-                                System.out.println("Saque realizado com sucesso!");
-                            } else
-                                System.out.println("Não foi possível sacar.");
-                        }
-                    });
+                    app.consultarISBN();
                     break;
 
                 case 4:
-                    long nContaD = Long.parseLong(IO.readln("Entre com o número da conta: "));
-                    double valorDeposito = Double.parseDouble(IO.readln("Entre com o valor a depositar: "));
-
-                    contas.forEach(e -> {
-                        if (e.getNumConta() == nContaD) {
-                            if (e.depositar(valorDeposito)) {
-                                System.out.println("Depósito realizado com sucesso!");
-                            } else {
-                                System.out.println("Não foi possível depositar.");
-                            }
-                        }
-                    });
-                    break;
-
-                case 5:
-                    System.out.println("Encerrando...");
+                    app.consultarAutor();
                     break;
 
                 default:
                     break;
             }
-        } while (opcao != 5);
+        } while (opcao != 7);
     }
 }
