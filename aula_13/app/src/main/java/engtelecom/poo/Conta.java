@@ -1,0 +1,45 @@
+package engtelecom.poo;
+
+public class Conta {
+    private long numConta;
+    private double saldo;
+    private String titular;
+
+    public Conta(long numConta, double saldoInicial, String titular) {
+        if (!setSaldo(saldoInicial))
+            return;
+        this.numConta = numConta;
+        this.titular = titular;
+    }
+
+    private boolean setSaldo(double saldo) {
+        if (saldo < 0)
+            return false;
+        this.saldo = saldo;
+        return true;
+    }
+
+    public boolean depositar(double valor) {
+        if (valor <= 0)
+            return false;
+        double total = saldo + valor;
+        return setSaldo(total);
+    }
+
+    public boolean sacar(double valor) {
+        if (valor <= 0)
+            return false;
+        double total = saldo - valor;
+        return setSaldo(total);
+    }
+
+    public long getNumConta() {
+        return numConta;
+    }
+
+    @Override
+    public String toString() {
+        // return "Titular: " + titular + "\nNº conta: " + numConta + "\nSaldo: R$" + saldo;
+        return String.format("Titular: %s\nNº conta: %lld\nSaldo: R$%.2f", titular, numConta, saldo);
+    }
+}
