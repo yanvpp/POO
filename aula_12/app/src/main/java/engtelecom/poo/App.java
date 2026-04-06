@@ -107,20 +107,39 @@ public class App {
 
                 case 2:
                     contas.forEach(IO::println);
+                    break;
 
                 case 3:
-                    long n = Long.parseLong(IO.readln("Entre com o número da conta: "));
-                    double valor = Double.parseDouble(IO.readln("Entre com o valor a depositar: "));
+                    long nContaS = Long.parseLong(IO.readln("Entre com o número da conta: "));
+                    double valorSaque = Double.parseDouble(IO.readln("Entre com o valor a sacar: "));
 
-                    contas.forEach(e ->{
-                        if (e.getNumConta() == n){
-                            if(e.depositar(valor)){
-                                System.out.println("Depósito realizado com sucesso!");
-                                break;
-                            } System.out.println("Não foi possível depositar.");
-                            break;
+                    contas.forEach(e -> {
+                        if (e.getNumConta() == nContaS) {
+                            if (e.sacar(valorSaque)) {
+                                System.out.println("Saque realizado com sucesso!");
+                            } else
+                                System.out.println("Não foi possível sacar.");
                         }
                     });
+                    break;
+
+                case 4:
+                    long nContaD = Long.parseLong(IO.readln("Entre com o número da conta: "));
+                    double valorDeposito = Double.parseDouble(IO.readln("Entre com o valor a depositar: "));
+
+                    contas.forEach(e -> {
+                        if (e.getNumConta() == nContaD) {
+                            if (e.depositar(valorDeposito)) {
+                                System.out.println("Depósito realizado com sucesso!");
+                            } else {
+                                System.out.println("Não foi possível depositar.");
+                            }
+                        }
+                    });
+                    break;
+
+                case 5:
+                    System.out.println("Encerrando...");
                     break;
 
                 default:
