@@ -31,7 +31,7 @@ public class App {
     private void cadastrar() {
         String iSBN = IO.readln("Entre com o ISBN: ");
 
-        if(acervo.containsKey(iSBN)){
+        if (acervo.containsKey(iSBN)) {
             System.out.println("ISBN já cadastrado, retornando ao menu...");
             return;
         }
@@ -45,25 +45,98 @@ public class App {
         acervo.put(iSBN, livro);
     }
 
-    private void listarLivros(){
+    private void listarLivros() {
         for (Livro livro : acervo.values()) {
             System.out.println("==================");
             System.out.println(livro);
         }
     }
 
-    private void consultarISBN(){
+    private void consultarISBN() {
         String iSBN = IO.readln("Entre com o ISBN: ");
 
         Livro livro = acervo.get(iSBN);
 
-        if(livro != null){
+        if (!livro.equals(null)) {
             System.out.println(livro);
         }
     }
 
-    private void consultarAutor(){
-        // desenvolver lógica para consulta baseado na por ISBN
+    private void consultarAutor() {
+        String autor = IO.readln("Entre com o nome do autor: ");
+
+        for (Livro livro : acervo.values()) {
+            if (livro.getAutor().equalsIgnoreCase(autor)) {
+                if (!livro.equals(null)) {
+                    System.out.println(livro);
+                }
+            }
+        }
+    }
+
+    private void atualizarLivro() {
+        String iSBN = IO.readln("Entre com o ISBN: ");
+
+        Livro livro = acervo.get(iSBN);
+
+        if (livro == null) {
+            System.out.println("Livro não encontrado, retornando...");
+            return;
+        }
+
+        System.out.println("""
+                Alterar título?
+                1. Sim
+                2. Não
+                """);
+
+        int escolha = Integer.parseInt(IO.readln("\nSua escolha: "));
+
+        if (escolha == 1) {
+            String titulo = IO.readln("\nEntre com o novo título: ");
+            livro.setTitulo(titulo);
+        }
+
+        System.out.println("""
+
+                Alterar autor?
+                1. Sim
+                2. Não
+                """);
+
+        escolha = Integer.parseInt(IO.readln("\nSua escolha: "));
+
+        if (escolha == 1) {
+            String autor = IO.readln("\nEntre com o novo autor: ");
+            livro.setAutor(autor);
+        }
+
+        System.out.println("""
+
+                Alterar ano de publicação?
+                1. Sim
+                2. Não
+                """);
+
+        escolha = Integer.parseInt(IO.readln("\nSua escolha: "));
+
+        if (escolha == 1) {
+            int anoPublicacao = Integer.parseInt(IO.readln("\nEntre com o novo ano de publicação: "));
+            livro.setAnoPublicacao(anoPublicacao);
+        }
+    }
+
+    private void removerLivro() {
+        String iSBN = IO.readln("\nEntre com o ISBN: ");
+
+        Livro livro = acervo.get(iSBN);
+
+        if (livro == null) {
+            System.out.println("Livro não encontrado, retornando...");
+            return;
+        }
+
+        acervo.remove(iSBN);
     }
 
     void main() {
@@ -71,7 +144,7 @@ public class App {
         App app = new App();
 
         Livro a = new Livro("948", "Java", "Deitel", 2001);
-        Livro b = new Livro("12345", "Rangers", "John Flanagan", 2004);
+        Livro b = new Livro("12345", "The Paladin Prophecy", "Mark Frost", 2012);
         Livro c = new Livro("65843", "Mais Esperto Que o Diabo", "Napoleon Hill", 1938);
 
         if (!app.acervo.containsKey(a.getISBN())) {
@@ -117,6 +190,14 @@ public class App {
 
                 case 4:
                     app.consultarAutor();
+                    break;
+
+                case 5:
+                    app.atualizarLivro();
+                    break;
+
+                case 6:
+                    app.removerLivro();
                     break;
 
                 default:
