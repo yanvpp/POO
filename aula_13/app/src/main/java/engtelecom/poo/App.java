@@ -129,14 +129,10 @@ public class App {
     private void removerLivro() {
         String iSBN = IO.readln("\nEntre com o ISBN: ");
 
-        Livro livro = acervo.get(iSBN);
-
-        if (livro == null) {
+        if (acervo.remove(iSBN) == null) {
             System.out.println("Livro não encontrado, retornando...");
             return;
         }
-
-        acervo.remove(iSBN);
     }
 
     void main() {
