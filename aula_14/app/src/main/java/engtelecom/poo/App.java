@@ -3,9 +3,55 @@
  */
 package engtelecom.poo;
 
+import java.util.Stack;
+
 public class App {
-    void main(){
+    Stack<Character> stack = new Stack<>();
+    String expressao = "-{[b*b-(4*a*c)]/(2*a)}";
 
+    private boolean expressaoValida() {
+        char top;
 
+        for (int i = 0; i < expressao.length(); i++) {
+            char c = expressao.charAt(i);
+
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            }
+
+            else if (c == ')' || c == ']' || c == '}') {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+
+                top = stack.pop();
+
+                if ((c == ')' && top != '(') ||
+                    (c == ']' && top != '[') ||
+                    (c == '}' && top != '{')) {
+                        return false;
+                }
+            }
+        }
+        return stack.isEmpty();
     }
+
+    void main() {
+        // // percorrer array como uma lista para encontrar o tamanho da maior palavra
+        // List<String> lista = Arrays.asList("Java", "Stream", "API", "Collections");
+
+        // int maior = 0;
+
+        // for (int i = 0; i < lista.size(); i++) {
+        // if (maior < lista.get(i).length()) {
+        // maior = lista.get(i).length();
+        // }
+        // }
+        if (expressaoValida()) {
+            System.out.println("Expressão: " + expressao + "\nÉ válida.");
+        } else {
+            System.out.println("Expressão: " + expressao + "\nÉ inválida.");
+        }
+    }
+
 }
