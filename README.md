@@ -21,5 +21,6 @@
 - [Aula 08](aula_08) - Primeira aula sobre objetos
 - [Aula 09](aula_09) - Implementação de classes
 - [Aula 10](aula_10) - Construtores e Modificadores de Acesso
-- [Aula 12](aula_12) - Listas e conjuntos
+- [Aula 12](aula_12) - Listas e Conjuntos
 - [Aula 13](aula_13) - Hash Maps
+- [Aula 14](aula_14) - Java Streams
