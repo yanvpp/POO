@@ -4,8 +4,21 @@
 package engtelecom.poo;
 
 public class App {
-    void main(){
 
-        
+
+    public static void main(String[] args) {
+        //Carro
+        Motor motorPorsche = new Motor(711, 6);
+
+        Carro carro = new Carro("Porsche", motorPorsche);
+
+        carro.acelerar(100);
+
+        // Livro
+        Pessoa autor = new Pessoa("Autor da Silva");
+
+        Livro livro = new Livro("De fato um livro", autor);
+
+        livro.adicionaCapitulo("De fato um capítulo do livro");
     }
 }
