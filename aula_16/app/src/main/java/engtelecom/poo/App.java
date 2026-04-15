@@ -5,6 +5,8 @@ package engtelecom.poo;
 
 public class App {
     public static void main(String[] args) {
-        
+        Aviao aviao = new Aviao(20, 200, 575000, 320000, 8, "foguete", 9000);
+
+        System.out.println(aviao.toString());
     }
 }
