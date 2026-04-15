@@ -14,7 +14,7 @@ public class Aviao {
             double maxPeso, double maxCombustivel, int maxMotores,
             String tipoMotor, double consumoMotor) {
 
-        if (!tipoMotor.equalsIgnoreCase("helice") ||
+        if (!tipoMotor.equalsIgnoreCase("helice") &&
                 !tipoMotor.equalsIgnoreCase("turbina")) {
 
             tipoMotor = "helice";
@@ -30,22 +30,24 @@ public class Aviao {
 
         for (int i = 0; i < maxMotores; i++) {
             motores.add(new Motor(tipoMotor, consumoMotor));
-
-            this.maxTripulantes = maxTripulantes;
-            this.maxPassageiros = maxPassageiros;
-            this.maxPeso = maxPeso;
-            this.maxCombustivel = maxCombustivel;
-            this.maxMotores = maxMotores;
         }
 
-    }
-    
-    public void ligaDesligaTodosMotores(){
-        motores.forEach(motores.);
+        this.maxTripulantes = maxTripulantes;
+        this.maxPassageiros = maxPassageiros;
+        this.maxPeso = maxPeso;
+        this.maxCombustivel = maxCombustivel;
+        this.maxMotores = maxMotores;
+
     }
 
-    public void ligaDesligaMotor(int motor){
-        
+    public void ligaDesligaTodosMotores() {
+        for (Motor motor : motores) {
+            motor.ligaDesliga();
+        }
+    }
+
+    public void ligaDesligaMotor(int motor) {
+        motores.get(motor).ligaDesliga();
     }
 
     @Override
