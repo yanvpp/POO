@@ -10,6 +10,7 @@
 - [Laboratório 01](lab_01) - Sistema de Controle de Versão
 - [Laboratório 02](lab_02) - Exercícios e Criação de Projetos
 - [Laboratório 03](lab_03) - Construtores e Modificadores de Acesso
+- [Laboratório 04](lab_04) - Princípio de Responsabilidade Única
 
 ## Aulas
 
@@ -26,3 +27,4 @@
 - [Aula 14](aula_14) - Exercício com Stack
 - [Aula 15](aula_15) - UML Markdown com Mermaid
 - [Aula 16](aula_16) - Criando Classes a Partir do UML
+- [Aula 17](aula_17) - Modelando Entidades e Relacionamentos
