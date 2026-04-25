@@ -4,7 +4,59 @@
 package engtelecom.poo;
 
 public class App {
-    public static void main(String[] args) {
-        
+    private void menu() {
+        System.out.println("""
+                --------------------
+                |       MENU       |
+                --------------------
+
+                1.
+                2.
+                3.
+                4.
+                5.
+                6. Sair
+                """);
+
+        escolha = Integer.parseInt(IO.readln("Escolha uma opção: "));
+    }
+
+    private int escolha;
+
+    public void main() {
+        App app = new App();
+
+        do {
+            app.menu();
+
+            switch (escolha) {
+                case 1:
+
+                    break;
+
+                case 2:
+
+                    break;
+
+                case 3:
+
+                    break;
+
+                case 4:
+
+                    break;
+
+                case 5:
+
+                    break;
+
+                case 6:
+                    System.out.println("Encerrando sistema...");
+                    break;
+
+                default:
+                    break;
+            }
+        } while (escolha != 6);
     }
 }
