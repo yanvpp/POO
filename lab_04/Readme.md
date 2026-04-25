@@ -50,7 +50,7 @@ classDiagram
         - numero: int
         - label: String
         + Telefone(numero: int, label: String)
-        + toString(): String
+        + toString() String
     }
 
     class Email{
