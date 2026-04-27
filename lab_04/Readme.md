@@ -20,7 +20,7 @@ classDiagram
         + Agenda()
         + addContato(contato: Contato) boolean
         + findContato(nome: String, sobrenome: String) ArrayList~Contato~
-        + removeContato(nome: String) boolean
+        + removeContato(nome: String, sobrenome: String) boolean
         + addTelefone(numero: int, label: String) boolean
         + removeTelefone(numero: int) boolean
         + updateTelefone(numero: int, label: String) boolean
