@@ -1,12 +1,16 @@
 package engtelecom.poo;
 
 public class Telefone {
-    private int numero;
+    private String numero;
     private String label;
 
-    public Telefone(int numero, String label){
+    public Telefone(String numero, String label){
         this.numero = numero;
         this.label = label;
+    }
+
+    public String getLabel(){
+        return label;
     }
 
     @Override

@@ -10,18 +10,62 @@ public class App {
                 |       MENU       |
                 --------------------
 
-                1.
-                2.
-                3.
-                4.
-                5.
-                6. Sair
+                1. Adicionar
+                2. Remover
+                3. Atualizar
+                4. Listar Contatos
+                5. Sair
                 """);
 
         escolha = Integer.parseInt(IO.readln("Escolha uma opção: "));
     }
 
-    private int escolha;
+    private void menuAdd() {
+        System.out.println("""
+                ---------------------
+                |     ADICIONAR     |
+                ---------------------
+
+                1. Adicionar Contato
+                2. Adicionar Telefone
+                3. Adicionar Email
+                4. Voltar
+                """);
+
+        escolhaAdd = Integer.parseInt(IO.readln("Escolha uma opção: "));
+    }
+
+    private void menuRemove() {
+        System.out.println("""
+                ---------------------
+                |      REMOVER      |
+                ---------------------
+
+                1. Remover Contato
+                2. Remover Telefone
+                3. Remover Email
+                4. Voltar
+                """);
+
+        escolhaRemove = Integer.parseInt(IO.readln("Escolha uma opção: "));
+    }
+
+    private void menuUpdate() {
+        System.out.println("""
+                ---------------------
+                |     ATUALIZAR     |
+                ---------------------
+
+                1. Atualizar Contato
+                2. Atualizar Telefone
+                3. Atualizar Email
+                4. Voltar
+                """);
+
+        escolhaUpdate = Integer.parseInt(IO.readln("Escolha uma opção: "));
+    }
+
+    private int escolha, escolhaAdd, escolhaRemove, escolhaUpdate;
 
     public void main() {
         App app = new App();
@@ -31,14 +75,32 @@ public class App {
 
             switch (escolha) {
                 case 1:
+                    do {
+                        app.menuAdd();
+
+                    } while (escolhaAdd != 4);
+                    
+                    System.out.println("Retornando ao menu inicial...");
 
                     break;
 
                 case 2:
+                    do {
+                        app.menuRemove();
+
+                    } while (escolhaRemove != 4);
+
+                    System.out.println("Retornando ao menu inicial...");
 
                     break;
 
                 case 3:
+                    do {
+                        app.menuUpdate();
+
+                    } while (escolhaUpdate != 4);
+                    
+                    System.out.println("Retornando ao menu inicial...");
 
                     break;
 
@@ -47,16 +109,12 @@ public class App {
                     break;
 
                 case 5:
-
-                    break;
-
-                case 6:
                     System.out.println("Encerrando sistema...");
                     break;
 
                 default:
                     break;
             }
-        } while (escolha != 6);
+        } while (escolha != 5);
     }
 }

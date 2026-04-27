@@ -9,6 +9,10 @@ public class Email {
         this.label = label;
     }
 
+    public String getLabel(){
+        return label;
+    }
+
     @Override
     public String toString() {
         return String.format("Endereço de email: %s\nRótulo: %s", endereco, label);
