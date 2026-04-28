@@ -3,8 +3,8 @@
 classDiagram
     direction TB
 
-    App ..> Contato
-    App *-- AgendaTelefonica
+    App"1" ..> "0..*"Contato
+    App"1" *-- "0..*"AgendaTelefonica
     AgendaTelefonica"1" *-- "0..*"Contato
     Contato"1" *-- "0..*"Telefone
     Contato"1" *-- "0..*"Email
