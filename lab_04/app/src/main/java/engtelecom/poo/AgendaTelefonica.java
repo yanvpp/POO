@@ -33,13 +33,22 @@ public class AgendaTelefonica {
     }
 
     public boolean removeContato(String nome, String sobrenome) {
-        return contatos.removeIf(contato -> contato.getNome().equals(nome) && contato.getNome().equals(sobrenome));
+        return contatos.removeIf(contato -> contato.getNome().equals(nome) && contato.getSobrenome().equals(sobrenome));
+    }
+
+    public boolean updateContato(String nome, String sobrenome, LocalDate birthDate){
+        Contato contato = filtro(nome, sobrenome);
+
+        if(contato != null){
+            return contato.updateDadosContato(nome, sobrenome, birthDate);
+        }
+
+        return false;
     }
 
     public boolean addTelefone(String nome, String sobrenome, String numero, String label) {
         String eR = "^[0-9]+$";
-        String numeroS = String.valueOf(numero);
-        if (numeroS.equals(eR)) {
+        if (!numero.matches(eR)) {
             return false;
         }
 
@@ -75,7 +84,7 @@ public class AgendaTelefonica {
     public boolean addEmail(String nome, String sobrenome, String endereco, String label) {
         // verifica se o email é válido
         String eR =  "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
-        if (endereco.matches(eR)) {
+        if (!endereco.matches(eR)) {
             return false;
         }
         

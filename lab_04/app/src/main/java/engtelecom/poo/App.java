@@ -3,6 +3,9 @@
  */
 package engtelecom.poo;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class App {
     private void menu() {
         System.out.println("""
@@ -65,10 +68,11 @@ public class App {
         escolhaUpdate = Integer.parseInt(IO.readln("Escolha uma opção: "));
     }
 
-    private int escolha, escolhaAdd, escolhaRemove, escolhaUpdate;
+    private static int escolha, escolhaAdd, escolhaRemove, escolhaUpdate;
 
-    public void main() {
+    public static void main(String args[]) {
         App app = new App();
+        AgendaTelefonica agenda = new AgendaTelefonica();
 
         do {
             app.menu();
@@ -78,8 +82,59 @@ public class App {
                     do {
                         app.menuAdd();
 
+                        String nome = IO.readln("Entre com o nome: ");
+                        String sobrenome = IO.readln("Entre com o sobrenome: ");
+
+                        switch (escolhaAdd) {
+                            case 1:
+                                DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+                                LocalDate birthDate = LocalDate
+                                        .parse(IO.readln("Entre com a data de nascimento (dd/MM/yyyy): "), formato);
+
+                                if (agenda.addContato(nome, sobrenome, birthDate)) {
+                                    System.out.println("Contato adicionado com sucesso!");
+                                } else {
+                                    System.out.println("Erro ao adicionar o contato.");
+                                }
+
+                                break;
+
+                            case 2:
+                                String numero = IO.readln("Entre com o número: ");
+                                String labelNum = IO.readln("Entre com o rótulo: ");
+
+                                if (agenda.addTelefone(nome, sobrenome, numero, labelNum)) {
+                                    System.out.println("Número adicionado com sucesso!");
+                                } else {
+                                    System.out.println("Erro ao adicionar o número.");
+                                }
+
+                                break;
+
+                            case 3:
+                                String endereco = IO.readln("Entre com o endereço de email: ");
+                                String labelEmail = IO.readln("Entre com o rótulo: ");
+
+                                if (agenda.addEmail(nome, sobrenome, endereco, labelEmail)) {
+                                    System.out.println("Email adicionado com sucesso!");
+                                } else {
+                                    System.out.println("Erro ao adicionar o email.");
+                                }
+
+                                break;
+
+                            case 4:
+                                break;
+
+                            default:
+                                System.out.println("Opção inválida.");
+                                break;
+                        }
+                        System.out.println("Retornando ao menu adicionar...");
+
                     } while (escolhaAdd != 4);
-                    
+
                     System.out.println("Retornando ao menu inicial...");
 
                     break;
@@ -87,6 +142,49 @@ public class App {
                 case 2:
                     do {
                         app.menuRemove();
+
+                        String nome = IO.readln("Entre com o nome: ");
+                        String sobrenome = IO.readln("Entre com o sobrenome: ");
+
+                        switch (escolhaRemove) {
+                            case 1:
+                                if (agenda.removeContato(nome, sobrenome)) {
+                                    System.out.println("Contato removido com sucesso!");
+                                } else {
+                                    System.out.println("Erro ao remover o contato.");
+                                }
+                                
+                                break;
+
+                            case 2:
+                                String labelNum = IO.readln("Entre com o rótulo do número: ");
+
+                                if (agenda.removeTelefone(nome, sobrenome, labelNum)) {
+                                    System.out.println("Telefone removido com sucesso!");
+                                } else {
+                                    System.out.println("Erro ao remover telefone.");
+                                }
+
+                                break;
+
+                            case 3:
+                                String labelEmail = IO.readln("Entre com o rótulo do endereço de email: ");
+
+                                if (agenda.removeEmail(nome, sobrenome, labelEmail)) {
+                                    System.out.println("Email removido com sucesso!");
+                                } else {
+                                    System.out.println("Erro ao remover email.");
+                                }
+
+                                break;
+
+                            case 4:
+                                break;
+
+                            default:
+                                break;
+                        }
+                        System.out.println("Retornando ao menu remover...");
 
                     } while (escolhaRemove != 4);
 
@@ -98,14 +196,64 @@ public class App {
                     do {
                         app.menuUpdate();
 
+                        System.out.println("Dados do contato: ");
+                        String nome = IO.readln("Entre com o nome: ");
+                        String sobrenome = IO.readln("Entre com o sobrenome: ");
+
+                        switch (escolhaUpdate) {
+                            case 1:
+                                String novoNome = IO.readln("Entre com o novo nome: ");
+                                String novoSobrenome = IO.readln("Entre com o novo sobrenome: ");
+                                 DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+                                LocalDate newBirthDate = LocalDate
+                                        .parse(IO.readln("Entre com a data de nascimento (dd/MM/yyyy): "), formato);
+
+                                if (agenda.updateContato(novoNome, novoSobrenome, newBirthDate)) {
+                                    System.out.println("Contato atualizado com sucesso!");
+                                } else {
+                                    System.out.println("Erro ao atualizar contato.");
+                                }
+                                break;
+
+                            case 2:
+                                String novoNumero = IO.readln("Entre com o novo número: ");
+                                String newLabelNum = IO.readln("Entre com o novo rótulo: ");
+
+                                if (agenda.updateTelefone(nome, sobrenome, novoNumero, newLabelNum)){
+                                    System.out.println("Telefone atualizado com sucesso!");
+                                } else {
+                                    System.out.println("Erro ao atualizar telefone.");
+                                }
+
+                                break;
+
+                            case 3:
+                                String novoEndereco = IO.readln("Entre com o novo endereço de email: ");
+                                String newLabelEmail = IO.readln("Entre com o novo rótulo: ");
+
+                                if(agenda.updateEmail(nome, sobrenome, novoEndereco, newLabelEmail)){
+                                    System.out.println("Email atualizado com sucesso!");
+                                } else {
+                                    System.out.println("Erro ao atualizar o email.");
+                                }
+
+                                break;
+
+                            case 4:
+                                break;
+                                
+                            default:
+                                break;
+                        }
+
                     } while (escolhaUpdate != 4);
-                    
+
                     System.out.println("Retornando ao menu inicial...");
 
                     break;
 
                 case 4:
-
                     break;
 
                 case 5:
@@ -113,6 +261,7 @@ public class App {
                     break;
 
                 default:
+                    System.out.println("Opção inválida.");
                     break;
             }
         } while (escolha != 5);

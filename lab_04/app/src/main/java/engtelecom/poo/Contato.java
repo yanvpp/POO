@@ -7,13 +7,25 @@ public class Contato {
     private String nome;
     private String sobrenome;
     private LocalDate birthDate;
-    private ArrayList<Telefone> telefones;
-    private ArrayList<Email> emails;
+    private ArrayList<Telefone> telefones = new ArrayList<>();
+    private ArrayList<Email> emails = new ArrayList<>();
 
     public Contato(String nome, String sobrenome, LocalDate birthDate) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.birthDate = birthDate;
+    }
+
+    public boolean updateDadosContato(String nome, String sobrenome, LocalDate birthDate){
+        if (nome == null || sobrenome == null || birthDate == null){
+            return false;
+        }
+        
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.birthDate = birthDate;
+
+        return true;
     }
 
     public String getNome() {
