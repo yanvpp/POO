@@ -11,6 +11,7 @@
 - [Laboratório 02](lab_02) - Exercícios e Criação de Projetos
 - [Laboratório 03](lab_03) - Construtores e Modificadores de Acesso
 - [Laboratório 04](lab_04) - Princípio de Responsabilidade Única
+- [Laboratório 05](lab_05) - Modelagem UML e Associação Entre Classes
 
 ## Aulas
 
