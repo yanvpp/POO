@@ -94,6 +94,6 @@ public class Contato {
                 %s
                 Endereços de email:
                 %s
-                """, nome, sobrenome, numeros, enderecos, birthDate);
+                """, nome, sobrenome, birthDate, numeros, emails);
     }
 }
