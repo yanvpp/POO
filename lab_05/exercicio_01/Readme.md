@@ -9,21 +9,24 @@ classDiagram
     Pedido"1" o-- "0..*"Produto
 
     class Produto {
-        - id: int
+        - id: int$
         - descricao: String
         - preco: double
         - qtdEstoque: int
         + Produto(descricao: String, preco: double, qtdEstoque: int)
+        + getID() int
+        + getEstoque() int
         + toString() String
     }
 
     class Cliente {
         - nome: String
         - email: String
-        - endereco: ArrayList~Endereco~
+        - enderecos: ArrayList~Endereco~
         - pedidos: ArrayList~Pedido~
         + Cliente(nome: String, email: String)
-        + addEndereco(cep: String, logradouro: String, numero: int) boolean
+        + addEndereco(cep: String, logradouro: String, numero: int, complemento: String) boolean
+        + removeEndereco(cep: String, logradouro: String, numero: int, complemento: String) boolean
         + criaPedido(data: LocalDate, situacao: String) boolean
         + apagarPedido(idPedido: int) boolean
         + addProdutoNoPedido(idPedido: int, idProduto: int, quantidade: int) boolean
@@ -37,15 +40,21 @@ classDiagram
         - numero: int
         - complemento: String
         + Endereco(cep: String, logradouro: String, numero: int, complemento: String)
+        + getCep() String
+        + getLogradouro() String
+        + getNumero() String
         + toString() String
     }
                 
     class Pedido {
-        - id: int
+        - id: int$
         - data: LocalDate
         - situacao: String
-        - produtos: HashMap~Produto, Integer~
+        - pedido: HashMap~Produto, Integer~
+        - produtos: ArrayList~Produto~
         + Pedido(data: LocalDate, situacao: String)
+        + getID() int
+        + getItem() String
         + addProduto(idProduto: int, quantidade: int) boolean
         + removeProduto(idProduto: int, quantidade: int) boolean
         + toString() String
