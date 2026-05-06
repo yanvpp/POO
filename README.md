@@ -1,3 +1,4 @@
+![GitHub top language](https://img.shields.io/github/languages/top/yanvpp/POO)
 ![GitHub License](https://img.shields.io/github/license/yanvpp/POO) ![GitHub repo size](https://img.shields.io/github/repo-size/yanvpp/POO)
 
 
