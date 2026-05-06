@@ -23,6 +23,9 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
+
+    // incluindo args4.jar
+    implementation(files("libs/algs4.jar"))
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
