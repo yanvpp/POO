@@ -12,6 +12,7 @@
 - [Laboratório 03](lab_03) - Construtores e Modificadores de Acesso
 - [Laboratório 04](lab_04) - Princípio de Responsabilidade Única
 - [Laboratório 05](lab_05) - Modelagem UML e Associação Entre Classes
+- [Laboratório 06](lab_06) - Relógio de 7 Segmentos com Interface
 
 ## Aulas
 
