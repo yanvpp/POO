@@ -2,12 +2,11 @@
 
 ```mermaid
 classDiagram
-direction LR
+direction TB
 
     App"1" *-- "1"Relogio
     Relogio"1" *-- "6"Display
-    Display"1" *-- "7"Segmentos
-    Relogio"1" *-- "2"Delimitador
+    Display"1" *-- "7"Segmento
 
     class App {
 
@@ -17,21 +16,18 @@ direction LR
         - horas : int
         - minutos : int
         - segundos : int
-        - Display : ArrayList~Display~
+        - display : ArrayList~Display~
+        + Relogio(hora: int, minuto: int, segundo: int)
     }
 
     class Display {
         - numero : int
         - segmentos : ArrayList~Segmento~
-        - delimitadores : ArrayList~Delimitador~
-
+        - delimitador : char
+        + Display(numero: int)
     }
 
     class Segmento {
-
-    }
-
-    class Delimitador {
 
     }
 ```
