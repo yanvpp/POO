@@ -4,9 +4,26 @@
 classDiagram
     direction TB
 
-    Endereco"1..*" --* "1"Cliente
+    App"1" *-- "0..*"Cliente
+    Cliente"1" *-- "1..*"Endereco
     Cliente"1" *-- "0..*"Pedido
     Pedido"1" o-- "0..*"Produto
+
+    class App {
+        - escolha: int$
+        - escolhaAdd: int$
+        - escolhaRemove: int$
+        - escolhaAtt: int$
+        - escolhaList: int$
+        - estoque: ArrayList~Produto~
+        - clientes: ArrayList~Cliente~
+        - menu()
+        - menuAdd()
+        - menuRemove()
+        - menuAtt()
+        - menuList()
+        + main()
+    }
 
     class Produto {
         - id: int$
@@ -53,6 +70,7 @@ classDiagram
         - pedido: HashMap~Produto, Integer~
         - produtos: ArrayList~Produto~
         + Pedido(data: LocalDate, situacao: String)
+        + getDescricao() String
         + getID() int
         + getItem() String
         + addProduto(idProduto: int, quantidade: int) boolean

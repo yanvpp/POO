@@ -14,6 +14,10 @@ public class Cliente {
         this.email = email;
     }
 
+    public String getEmail(){
+        return email;
+    }
+
     public boolean addEndereco(String cep, String logradouro, int numero, String complemento) {
         if (cep.isBlank() || logradouro.isBlank() || numero <= 0) {
             return false;

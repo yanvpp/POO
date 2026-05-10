@@ -17,6 +17,10 @@ public class Produto {
         incrementador++;
     }
 
+    public String getDescricao(){
+        return descricao;
+    }
+
     public int getID(){
         return id;
     }

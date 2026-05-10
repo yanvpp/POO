@@ -16,7 +16,8 @@ classDiagram
         - diretor: Diretor
         - atores: ArrayList~Ator~
         - avaliacoes: ArrayList~Avaliacao~
-        + addAvaliacao(avaliacao: String) boolean
+        + Filme(titulo: String, ano: int, genero: String, diretor: Diretor, atores: ArraList~Ator~)
+        + addAvaliacao(user: String ,avaliacao: String) boolean
     }
 
     class Diretor {
@@ -38,5 +39,6 @@ classDiagram
         - email: String
         - senha: String
         - avaliacoes: ArrayList~Avaliacao~
+        + criarAvaliacao(avaliacao: String) boolean
     }
 ```

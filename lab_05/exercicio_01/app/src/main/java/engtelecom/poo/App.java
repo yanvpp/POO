@@ -3,8 +3,216 @@
  */
 package engtelecom.poo;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 public class App {
+
+    private void menu() {
+        System.out.println("""
+                --------------------
+                |       MENU       |
+                --------------------
+
+                1. Adicionar
+                2. Remover
+                3. Atualizar
+                4. Listar
+                5. Sair
+                """);
+
+        escolha = Integer.parseInt(IO.readln("Escolha uma opção: "));
+    }
+
+    private void menuAdd() {
+        System.out.println("""
+                ---------------------
+                |     ADICIONAR     |
+                ---------------------
+
+                1. Adicionar cliente
+                2. Adicionar endereço de cliente
+                3. Adicionar produto no estoque
+                4. Adicionar pedido de cliente
+                5. Voltar
+                """);
+
+        escolhaAdd = Integer.parseInt(IO.readln("Escolha uma opção: "));
+    }
+
+    private void menuRemove() {
+        System.out.println("""
+                ---------------------
+                |      REMOVER      |
+                ---------------------
+
+                1. Remover cliente
+                2. Remover endereço de cliente
+                3. Remover produto do estoque
+                4. Remover pedido de cliente
+                5. Voltar
+                """);
+
+        escolhaRemove = Integer.parseInt(IO.readln("Escolha uma opção: "));
+    }
+
+    private void menuAtt() {
+        System.out.println("""
+                ---------------------
+                |     ATUALIZAR     |
+                ---------------------
+
+                1. Atualizar dados de cliente
+                2. Atualizar endereço de cliente
+                3. Atualizar produto no estoque
+                4. Atualizar pedido de cliente
+                5. Voltar
+                """);
+
+        escolhaAtt = Integer.parseInt(IO.readln("Escolha uma opção: "));
+    }
+
+    private void menuList() {
+        System.out.println("""
+                --------------------
+                |      LISTAR      |
+                --------------------
+
+                1. Listar clientes
+                2. Listar produto do estoque
+                3. Listar pedidos
+                5. Voltar
+                """);
+
+        escolhaList = Integer.parseInt(IO.readln("Escolha uma opção: "));
+    }
+
+    private static int escolha, escolhaAdd, escolhaRemove, escolhaAtt, escolhaList;
+
     public static void main(String[] args) {
-        
+        App app = new App();
+        ArrayList<Produto> estoque = new ArrayList<>();
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        String nome;
+        String email;
+        String cep;
+        String logradouro;
+        int numero;
+        String complemento;
+        String descricao;
+        double preco;
+        int qtdEstoque;
+        int index = 0;
+        LocalDate data;
+        String situacao;
+
+        do {
+            app.menu();
+
+            switch (escolha) {
+                case 1:
+                    do {
+                        app.menuAdd();
+
+                        switch (escolhaAdd) {
+                            case 1:
+                                nome = IO.readln("Entre com o nome do cliente: ");
+                                email = IO.readln("Entre com o endereço de email do cliente: ");
+
+                                Cliente cliente = new Cliente(nome, email);
+
+                                clientes.add(cliente);
+                                break;
+
+                            case 2:
+                                email = IO.readln("Entre com o endereço de email do cliente: ");
+
+                                for (Cliente e : clientes) {
+                                    if (e.getEmail().equals(email)) {
+                                        cep = IO.readln("Entre com o CEP: ");
+                                        logradouro = IO.readln("Entre com o nome da rua: ");
+                                        numero = Integer.parseInt(IO.readln("Entre com o número da casa: "));
+                                        complemento = IO.readln("Entre com o complemento (ou deixe em branco): ");
+
+                                        if (e.addEndereco(cep, logradouro, numero, complemento)) {
+                                            System.out.println("Endereço adicionado com sucesso!");
+                                        } else {
+                                            System.out.println("Erro ao adicionar o endereço.");
+                                        }
+                                    }
+                                }
+
+                                break;
+
+                            case 3:
+                                descricao = IO.readln("Entre com o nome do produto: ");
+
+                                for (Produto e : estoque) {
+                                    if (e.getDescricao().equalsIgnoreCase(descricao)) {
+                                        index = e.getID();
+                                    }
+                                }
+
+                                if (index == 0) {
+
+                                    preco = Double.parseDouble(IO.readln("Entre com o preço do produto: "));
+                                    qtdEstoque = Integer.parseInt(IO.readln("Entre com a quantidade no estoque: "));
+
+                                    Produto produto = new Produto(descricao, preco, qtdEstoque);
+
+                                    if (estoque.add(produto)) {
+                                        System.out.println("Produto adicionado com sucesso!");
+                                    } else {
+                                        System.out.println("Erro ao adicionar produto.");
+                                    }
+                                } else {
+                                    System.out.println("Produto já existe, tente atualizá-lo.");
+                                }
+                                break;
+
+                            case 4:
+                                email = IO.readln("Entre com o endereço de email do cliente: ");
+
+                                for (Cliente e : clientes) {
+                                    if (e.getEmail().equals(email)) {
+                                        data = LocalDate.parse(IO.readln("Entre com a data do pedido: "));
+                                        situacao = IO.readln("Entre com o status do pedido: ");
+
+                                        if (e.criaPedido(data, situacao)) {
+                                            System.out.println("Pedido criado com sucesso!");
+                                        } else {
+                                            System.out.println("Erro ao criar pedido.");
+                                        }
+                                    }
+                                }
+                                break;
+
+                            case 5:
+                                break;
+
+                            default:
+                                System.out.println("Escolha inválida.");
+                                break;
+                        }
+                    } while (escolhaAdd != 5);
+
+                    break;
+
+                    case 2: 
+                        do {
+                            
+                    
+                        } while (escolhaRemove != 5);
+                    
+                    default:
+                    System.out.println("Escolha inválida.");
+                    break;
+            }
+
+            System.out.println("Retornando ao menu inicial...");
+
+        } while (escolha != 5);
+
+        System.out.println("Encerrando...");
     }
 }
