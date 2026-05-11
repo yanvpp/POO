@@ -32,3 +32,4 @@
 - [Aula 16](aula_16) - Criando Classes a Partir do UML
 - [Aula 17](aula_17) - Modelando Entidades e Relacionamentos
 - [Aula 18](aula_18) - Interface com Biblioteca args4
+- [Aula 19](aula_19) - Introdução ao Paradigma da Herança
