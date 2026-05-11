@@ -3,8 +3,18 @@
  */
 package engtelecom.poo;
 
+import engtelecom.poo.produtos.Dimensao;
+import engtelecom.poo.produtos.SemFio;
+import engtelecom.poo.produtos.Telefone;
+
 public class App {
     public static void main(String[] args) {
-        
+        Telefone telefone = new Telefone(0, "0000", "com fio", 50, new Dimensao(10, 10, 10));
+
+        SemFio semFio = new SemFio(1, "1111", "sem fio", 10, new Dimensao(10, 4, 2), 10, 10, 10);
+
+        System.out.println("Com fio: " + telefone.toString());
+
+        System.out.println("Sem fio: " + semFio.toString());
     }
 }
