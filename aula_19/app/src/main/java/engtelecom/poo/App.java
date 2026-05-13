@@ -16,5 +16,26 @@ public class App {
         System.out.println("Com fio: " + telefone.toString());
 
         System.out.println("Sem fio: " + semFio.toString());
+        
+        // aula 13/05/2026
+
+        Telefone t = new Telefone(0, null, null, 0, null);
+
+        SemFio sf = new SemFio(0, null, null, 0, null, 0, 0, 0);
+
+        Telefone a = new SemFio(0, null, null, 0, null, 0, 0, 0);
+
+        SemFio b = (SemFio) a;
+
+        Telefone produtos[] = new Telefone[3];
+        produtos[0] = telefone;
+        produtos[1] = semFio;
+
+        for (Telefone tele : produtos) {
+            if (tele instanceof SemFio sFio) {
+                double freq = sFio.getFrequencia();
+                System.out.println("Frequência do sem fio: " + freq + " Hz");
+            }
+        }
     }
 }
