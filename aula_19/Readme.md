@@ -181,19 +181,20 @@ classDiagram
     Peixe <|-- Tubarao
 
     class Animal {
-
+        
     }
 
     class Mamifero {
-
+        - quantidadeDeMamas : int
     }
 
     class Ave {
-
+        - quantidadeDeAsas : int
+        - voa : boolean
     }
 
     class Peixe {
-
+        - quantidadeDeNadadeiras : int
     }
 
     class Gato {
