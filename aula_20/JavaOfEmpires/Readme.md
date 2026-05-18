@@ -7,16 +7,31 @@ direction LR
     Personagem <|-- Aldeao
     Personagem <|-- Arqueiro
     Personagem <|-- Cavaleiro
+    Aldeao ..|> Coletador
+    Aldeao ..|> Guerreiro
+    Arqueiro ..|> Guerreiro
+    Cavaleiro ..|> Guerreiro
 
     class Personagem {
-        - vida : int
-        - ataque : double
-        - velocidade : double
-        - nome : String
+        <<Abstract>>
+        
+        # vida : int
+        # ataque : double
+        # velocidade : double
+        # nome : String
         + Personagem(nome : String)
-        + atacar(ataque : double) String
-        + mover(x : int, y : int) String
-        + toString() String
+        + mover(x : int, y : int) String*
+    }
+
+    class Coletador {
+        <<interface>>
+        + coletarMadeira() String
+        + coletarOuro() String
+    }
+
+    class Guerreiro {
+        <<interface>>
+        + atacar() String
     }
 
     class Aldeao {
