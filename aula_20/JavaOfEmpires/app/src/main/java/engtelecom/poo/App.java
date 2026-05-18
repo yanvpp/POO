@@ -3,8 +3,18 @@
  */
 package engtelecom.poo;
 
+import engtelecom.poo.personagem.Aldeao;
+import engtelecom.poo.personagem.Arqueiro;
+import engtelecom.poo.personagem.Cavaleiro;
+import engtelecom.poo.personagem.Personagem;
+
 public class App {
     public static void main(String[] args) {
-
+        Aldeao jorge = new Aldeao("jorge", 25, 1, 0.8);
+        Arqueiro halt = new Arqueiro("halt", 35, 2, 1);
+        Cavaleiro sirWashalot = new Cavaleiro("Sir Washalot", 50, 3, 2);
+        // Personagem perso = new Personagem(null, 0, 0, 0); // não funciona mais, agora a classe é abstrata
+    
+        
     }
 }

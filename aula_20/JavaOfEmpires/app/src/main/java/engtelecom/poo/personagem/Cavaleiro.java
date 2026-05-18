@@ -1,15 +1,15 @@
 package engtelecom.poo.personagem;
 
-public class Arqueiro extends Personagem implements Guerreiro {
+public class Cavaleiro extends Personagem implements Guerreiro {
 
-    public Arqueiro(String nome, int vida, double ataque, double velocidade) {
+    public Cavaleiro(String nome, int vida, double ataque, double velocidade) {
         super(nome, vida, ataque, velocidade);
     }
-
+    
     @Override
     public String atacar() {
         return String.format("""
-                O arqueiro %s atacou e causou %.2f de dano com suas próprias mãos!
+                O cavaleiro %s atacou e causou %.2f de dano com suas próprias mãos!
                 """, nome, ataque);
     }
 
@@ -20,7 +20,8 @@ public class Arqueiro extends Personagem implements Guerreiro {
         double tempo = distancia / velocidade;
 
         return String.format("""
-                O arqueiro %s percorreu %.2f m em %.2f segundos!
+                O cavaleiro %s percorreu %.2f m em %.2f segundos!
                 """, nome, distancia, tempo);
     }
+
 }
