@@ -22,6 +22,7 @@ classDiagram
         # segundo : int
         # cor : Color
         # desenhar(draw : Draw, cor : Color)
+        # avancarNoTempo()*
 
     }
 
@@ -46,6 +47,8 @@ classDiagram
 
     class Cronometro {
         <<Abstract>>
+
+        # progressivo : boolean
     }
 
     class RelogioTexto {
