@@ -10,11 +10,32 @@ import engtelecom.poo.personagem.Personagem;
 
 public class App {
     public static void main(String[] args) {
+        int tamanhoMaximo = 300;
+
+        Personagem personagens[] = new Personagem[tamanhoMaximo];
+
         Aldeao jorge = new Aldeao("jorge", 25, 1, 0.8);
         Arqueiro halt = new Arqueiro("halt", 35, 2, 1);
         Cavaleiro sirWashalot = new Cavaleiro("Sir Washalot", 50, 3, 2);
         // Personagem perso = new Personagem(null, 0, 0, 0); // não funciona mais, agora a classe é abstrata
-    
+
+        personagens[0] = jorge;
+        personagens[1] = halt;
+        personagens[2] = sirWashalot;
+
+        Personagem p = jorge;
+
+        System.out.println(sirWashalot.atacar());
+        p.mover(10, 5);
+        halt.atacar();
+        
+        ((Aldeao)p).coletarMadeira();
+        jorge.coletarOuro();
+
+        for(int i = 0; i < tamanhoMaximo; i++){
+            personagens[i].mover(10, 5);
+        }
+
         
     }
 }

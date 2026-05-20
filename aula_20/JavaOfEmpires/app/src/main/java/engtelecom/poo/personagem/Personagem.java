@@ -21,7 +21,7 @@ public abstract class Personagem {
     // //             """, nome, ataque);
     // // }
 
-    public abstract String mover(int x, int y) ;
+    public abstract String mover(int x, int y);
     // {
     //     double distancia = Math.abs(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
 
