@@ -12,36 +12,45 @@ Ponto --* Retangulo
 FormaComArea <|-- Retangulo
 
 class FormaGeometrica {
-    - corLinha : String
-    - inicial : Ponto
-    + desenhar() String
+    <<Abstract>>
+    # corLinha : String
+    # pontoInicial : Ponto
+    + FormaGeometrica(corLinha: String, pontoInicial: Ponto)*
+    + desenhar() String*
 }
 
 class FormaComArea {
-    - corPreenchimento : String
-    + calcularArea() String
-    + calcularPerimetro() String
+    <<Abstract>>
+    # corPreenchimento : String
+    + FormaComArea(corDePreenchimento: String)*
+    + calcularArea() String*
+    + calcularPerimetro() String*
 }
 
 class Ponto {
     - x : double
     - y : double
     + Ponto(x: double, y: double)
+    + toString() String
 }
 
 class Linha {
-    - final : Ponto
+    - pontoFinal : Ponto
     + Linha(final: Ponto)
+    + desenhar() String
 }
 
 class Circulo {
     - raio : double
     + Circulo(raio: double)
+    + desenhar() String
 }
 
 class Retangulo {
-    - final : Ponto
+    - largura : double
+    - altura : double
     + Retangulo(final: Ponto)
+    + desenhar() String
 }
 
 ```
