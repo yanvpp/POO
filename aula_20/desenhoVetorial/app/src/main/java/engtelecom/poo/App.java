@@ -6,5 +6,23 @@ package engtelecom.poo;
 public class App {
     public static void main(String[] args) {
 
+        Ponto pontoInicial = new Ponto(0, 0);
+        Ponto pontoFinal   = new Ponto(1, 5);
+
+        Linha linha = new Linha("Preto", pontoInicial, pontoFinal);
+
+        System.out.println(linha.desenhar());
+
+        Circulo circulo = new Circulo("Preto", pontoInicial, "Branco", 2);
+
+        System.out.println(circulo.desenhar());
+        System.out.println(circulo.calcularArea());
+        System.out.println(circulo.calcularPerimetro());
+
+        Retangulo retangulo = new Retangulo("Preto", pontoInicial, "Branco", 2, 4);
+    
+        System.out.println(retangulo.desenhar());
+        System.out.println(retangulo.calcularArea());
+        System.out.println(retangulo.calcularPerimetro());
     }
 }
