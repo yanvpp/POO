@@ -2,8 +2,7 @@
 
 ```mermaid
 classDiagram
-direction TB
-
+    
     App"1" *-- "1"Relogio
     Relogio"1" *-- "6"Display
     Display"1" *-- "7"Segmento
@@ -16,18 +15,26 @@ direction TB
         - horas : int
         - minutos : int
         - segundos : int
-        - display : ArrayList~Display~
-        + Relogio(hora: int, minuto: int, segundo: int)
+        - displays : ArrayList~Display~
+        - tamanho: double
+        + Relogio(horas: int, minutos: int, segundos: int)
+        + desenhar(desenho: Draw, cor Color)
+        + atualizarTempo()
     }
 
     class Display {
-        - numero : int
         - segmentos : ArrayList~Segmento~
-        - delimitador : char
-        + Display(numero: int)
+        + Display(x: double, y: double, tamanho: double)
+        + setNum(numero: int)
+        + desenhar(desenho: Draw, cor: Color)
     }
 
     class Segmento {
-
+        - ligado: boolean
+        - x: double[]
+        - y: double[]
+        + Segmento(x: double[], y: double[])
+        + switcher(boolean ligado)
+        + desenhar(desenho: Draw, cor: Color)
     }
 ```
