@@ -11,7 +11,25 @@ import edu.princeton.cs.algs4.Draw;
 public class App {
     public static void main(String[] args) throws InterruptedException {
 
+        Draw desenho = new Draw();
 
+        desenho.setXscale(0, 1000);
+        desenho.setYscale(0, 1000);
         
+        desenho.setDefaultCloseOperation(0);
+
+        desenho.enableDoubleBuffering();
+
+        Color cor = Color.GREEN;
+
+        Relogio relogio = new Relogio(23, 59, 55, 250, 450, 1);
+    
+        while (true){
+            desenho.clear(Color.BLACK);
+            relogio.desenhar(desenho, cor);
+            desenho.show();
+            relogio.atualizarTempo();
+            TimeUnit.SECONDS.sleep(1);
+        }
     }
 }
