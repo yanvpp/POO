@@ -3,3 +3,6 @@
 
 # Ignore Gradle build output directory
 build
+
+# "não ignore o arquivo jar que estiver no meu repositório"
+!**/app/libs/*.jar
