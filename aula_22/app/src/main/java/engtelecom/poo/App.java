@@ -4,6 +4,8 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 import engtelecom.poo.baralhoFrances.Carta;
+import engtelecom.poo.baralhoFrances.Naipes;
+import engtelecom.poo.baralhoFrances.Valores;
 import engtelecom.poo.diasDaSemana.DiasDaSemana;
 import engtelecom.poo.diasDaSemana.Disciplina;
 
@@ -38,10 +40,16 @@ public class App {
 
         Deque<Carta> baralho = new ArrayDeque<>();
 
-        // for (Naipes n){
-        //     for (Valores v){
-        //         carta = new Carta(n, v)
-        //     }
-        // }
+        for (Naipes n : Naipes.values()) {
+            for (Valores v : Valores.values()) {
+                Carta carta = new Carta(v, n);
+
+                baralho.add(carta);
+            }
+        }
+
+        for (Carta c : baralho){
+            System.out.println(c);
+        }
     }
 }
