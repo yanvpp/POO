@@ -12,7 +12,7 @@ public class Carta {
     @Override
     public String toString(){
         return String.format("""
-                %d de %s
+                %s de %s
                 """, valor, naipe);
     }
 }
