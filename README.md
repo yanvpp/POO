@@ -14,6 +14,7 @@
 - [Laboratório 04](lab_04) - Princípio de Responsabilidade Única
 - [Laboratório 05](lab_05) - Modelagem UML e Associação Entre Classes
 - [Laboratório 06](lab_06) - Relógio de 7 Segmentos com Interface
+- [Laboratório 07](lab_07) - Relógio Digital, Textual e Analógico com Interface
 
 ## Aulas
 
