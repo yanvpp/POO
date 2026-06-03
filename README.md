@@ -36,4 +36,5 @@
 - [Aula 19](aula_19) - Introdução ao Paradigma da Herança
 - [Aula 20](aula_20) - Classe Abstrata e Interface
 - [Aula 21](aula_21) - Classe Abstrata e Interface
-- [Aula 22](aula_22) - Enumeração e Tipos Genéricos
+- [Aula 22](aula_22) - Enumeração
+- [Aula 23](aula_23) - Tipos Genéricos e Tratamento de Erros
