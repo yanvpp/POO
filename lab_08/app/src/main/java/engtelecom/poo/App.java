@@ -2,8 +2,9 @@ package engtelecom.poo;
 
 import engtelecom.poo.baralhoFrances.*;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import edu.princeton.cs.algs4.Draw;
 import edu.princeton.cs.algs4.DrawListener;
@@ -11,7 +12,7 @@ import edu.princeton.cs.algs4.DrawListener;
 public class App implements DrawListener {
 
     private Draw draw;
-    private Deque<CartaGrafica> baralho = new ArrayDeque<>();
+    private ArrayList<CartaGrafica> baralho = new ArrayList<>();
 
     public App() {
         this.draw = new Draw();
@@ -38,6 +39,8 @@ public class App implements DrawListener {
                 baralho.add(cg);
             }
         }
+
+        Collections.shuffle(baralho);
     }
 
     @Override
