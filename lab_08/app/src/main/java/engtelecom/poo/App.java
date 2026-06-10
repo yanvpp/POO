@@ -3,9 +3,6 @@ package engtelecom.poo;
 import engtelecom.poo.baralhoFrances.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-
 import edu.princeton.cs.algs4.Draw;
 import edu.princeton.cs.algs4.DrawListener;
 
@@ -39,8 +36,6 @@ public class App implements DrawListener {
                 baralho.add(cg);
             }
         }
-
-        Collections.shuffle(baralho);
     }
 
     @Override
@@ -51,6 +46,7 @@ public class App implements DrawListener {
                 c.desenhar(draw);
             }
         }
+        draw.show();
     }
 
     public static void main(String[] args) {
@@ -59,6 +55,8 @@ public class App implements DrawListener {
         for (CartaGrafica c : app.baralho) {
             c.desenhar(app.draw);
         }
+
+        app.draw.show();
 
     }
 }

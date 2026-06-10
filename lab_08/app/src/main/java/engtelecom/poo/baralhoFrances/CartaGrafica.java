@@ -28,14 +28,13 @@ public class CartaGrafica extends Carta {
         } else {
             Random r = new Random();
 
-            if (r.nextInt(1,3) == 1) {
+            if (r.nextBoolean()) {
                 draw.picture(x, y, "cartas/fundoa.png");
             } else {
                 draw.picture(x, y, "cartas/fundov.png");
             }
 
         }
-        draw.show();
     }
 
     public void virarCarta(){
